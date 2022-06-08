@@ -43,5 +43,5 @@ create table orders (
 
 insert into items(description, price) values ('laptop', 600);
 insert into items(description, price) values ('tv', 800);
-insert into items(description, price) values ('xbox', 400);
+insert into items(description, price) values ('phone', 400);
 insert into items(description, price) values ('headphones', 200);
