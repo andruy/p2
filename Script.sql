@@ -35,7 +35,7 @@ create table orders (
 	user_id int not null,
 	item_id int not null,
 	quantity int not null default 1,
-	order_number int not null,
+	order_number varchar(255) not null,
 	foreign key (user_id) references users (id),
 	foreign key (item_id) references items (id)
 );
