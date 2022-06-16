@@ -95,7 +95,7 @@
 				</configuration>
 			</plugin>
 		</plugins>
-		<finalName>project_02</finalName>
+		<finalName>project02</finalName>
 	</build>
 
 </project>
