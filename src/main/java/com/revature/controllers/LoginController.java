@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import io.micrometer.core.annotation.Timed;
+import io.micrometer.core.annotation.Counted;
 
 import com.revature.models.LoginTemplate;
 import com.revature.models.User;
@@ -19,6 +20,7 @@ public class LoginController {
 	
 	
 	@Timed(value = "login.time")
+	@Counted(value = "login.fail.counter", recordFailuresOnly = true)
 	@PostMapping("/login")
 	public ResponseEntity<User> login(@RequestBody LoginTemplate loginTemplate) {
 		
