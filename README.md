@@ -9,5 +9,6 @@ p2 was created by Andrew Anderson, Sidi Gassama, Luis Marquez, and Elisa Pavesi.
 * Java
 * Spring Boot
 * Loki
+* Grafana
 * Prometheus
 * Kubernetes
