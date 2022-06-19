@@ -5,6 +5,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
+import io.micrometer.core.annotation.Timed;
 
 import com.revature.models.LoginTemplate;
 import com.revature.models.User;
@@ -17,12 +18,14 @@ public class LoginController {
 	private UserService userService;
 	
 	
+	@Timed(value = "login.time")
 	@PostMapping("/login")
 	public ResponseEntity<User> login(@RequestBody LoginTemplate loginTemplate) {
 		
 		return ResponseEntity.ok(userService.login(loginTemplate.getUsername(), loginTemplate.getPassword()));
 	}
 	
+	@Timed(value = "logout.time")
 	@PostMapping("/logout")
 	public ResponseEntity<Void> logout() {
 		userService.logout();

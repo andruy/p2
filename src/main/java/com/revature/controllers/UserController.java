@@ -2,6 +2,7 @@ package com.revature.controllers;
 
 import java.util.List;
 
+import io.micrometer.core.annotation.Timed;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -35,6 +36,7 @@ public class UserController {
 		return ResponseEntity.ok(userService.findAll());
 	}
 	
+	@Timed(value = "getid.time")
 	@GetMapping("/{id}")
 	@Authorized(allowedRoles = {Role.ADMIN})
 	public ResponseEntity<User> findById(@PathVariable("id") int id) {
@@ -59,6 +61,7 @@ public class UserController {
 		return ResponseEntity.accepted().body(userService.update(user));
 	}
 	
+	@Timed(value = "deleteuser.time")
 	@Authorized(allowedRoles = {Role.ADMIN})
 	@DeleteMapping("/{id}")
 	public ResponseEntity<Void> delete(@PathVariable("id") int id) {
