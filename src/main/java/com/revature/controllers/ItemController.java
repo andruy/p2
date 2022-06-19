@@ -32,7 +32,7 @@ public class ItemController {
     }
     
     @Authorized(allowedRoles = {Role.CUSTOMER})
-    @Timed(value = "additem.time")
+    @Timed(value = "additem.time") //custom metric
     @PostMapping("/{item}/{quantity}")
     public ResponseEntity<String> addToCart(@PathVariable String item, @PathVariable int quantity) {
         itemService.addToCart(item, quantity);
@@ -40,14 +40,14 @@ public class ItemController {
     }
 
     @Authorized(allowedRoles = {Role.CUSTOMER})
-    @Timed(value = "cart.time")
+    @Timed(value = "cart.time") //custom metric
     @GetMapping("/cart")
     public ResponseEntity<List<Item>> getCartItems() {
         return ResponseEntity.ok(itemService.getCartItems());
     }
 
     @Authorized(allowedRoles = {Role.CUSTOMER})
-    @Timed(value = "buy.time")
+    @Timed(value = "buy.time") //custom metric
     @PostMapping("/cart/buy")
     public ResponseEntity<String> placeOrder() {
         return ResponseEntity.accepted().body(itemService.placeOrder());

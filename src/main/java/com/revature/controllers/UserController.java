@@ -36,7 +36,7 @@ public class UserController {
 		return ResponseEntity.ok(userService.findAll());
 	}
 	
-	@Timed(value = "getid.time")
+	@Timed(value = "get.id.time") //custom metric
 	@GetMapping("/{id}")
 	@Authorized(allowedRoles = {Role.ADMIN})
 	public ResponseEntity<User> findById(@PathVariable("id") int id) {
@@ -61,7 +61,7 @@ public class UserController {
 		return ResponseEntity.accepted().body(userService.update(user));
 	}
 	
-	@Timed(value = "deleteuser.time")
+	@Timed(value = "delete.user.time") //custom metric
 	@Authorized(allowedRoles = {Role.ADMIN})
 	@DeleteMapping("/{id}")
 	public ResponseEntity<Void> delete(@PathVariable("id") int id) {
