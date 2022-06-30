@@ -39,3 +39,7 @@ p2 was created by Andrew Anderson, Sidi Gassama, Luis Marquez, and Elisa Pavesi.
 * Grafana
 * Prometheus
 * Kubernetes
+
+SLO/Custom Metrics
+Custom Metric: Login time should be <1 second, SLO 90%
+Custom Metric: Website uptime, SLO 90%
